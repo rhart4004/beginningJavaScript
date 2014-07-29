@@ -27,6 +27,6 @@ These files will be broken down by chapter. The chapters are as follows:
 Updates
 -------
 
-07/28/2014 - Created git repository and started chapter 1.
+07/28/2014 - Created git repository and updated readme
 
 2014
