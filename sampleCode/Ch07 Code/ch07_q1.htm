@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 7: Question 1</title>
+    <script type="text/javascript">
+    function convertToCentigrade(degFahren)
+    {
+        var degCent = 5 / 9 * (degFahren - 32);
+
+        return degCent;
+    }
+
+    function btnToCent_onclick()
+    {
+        var calcBox = document.form1.txtCalcBox;
+
+        if (isNaN(calcBox.value) == true || calcBox.value == "")
+        {
+            calcBox.value = "Error Invalid Value";
+        }
+        else
+        {
+            calcBox.value = convertToCentigrade(calcBox.value);
+        }
+    }
+    </script>
+</head>
+<body>
+    <form action="" name="form1">
+        <p>
+            <input type="text" name="txtCalcBox" value="0.0" />
+        </p>
+        <input type="button" value="Convert to centigrade" name="btnToCent" onclick="btnToCent_onclick()" />
+    </form>
+</body>
+</html>

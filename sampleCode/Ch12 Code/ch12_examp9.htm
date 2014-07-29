@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 12: Example 9</title>
+    <style type="text/css">
+    .underline
+    {
+        color: red;
+        text-decoration: underline;
+    }
+    </style>
+    <script type="text/javascript">
+function handleEvent()
+{
+    if (event.srcElement.tagName == "P")
+    {
+        if (event.type == "mouseover")
+        {
+            event.srcElement.className = "underline";
+        }
+
+        if (event.type == "mouseout")
+        {
+            event.srcElement.className = "";
+        }
+    }
+
+    if (event.type == "click")
+    {
+        alert("You clicked the mouse button at the X:"
+            + event.clientX + " and Y:" + event.clientY + " coordinates");
+    }
+}
+
+    document.onmouseover = handleEvent;
+    document.onmouseout = handleEvent;
+    document.onclick = handleEvent;
+    </script>
+</head>
+<body>
+<p>This is paragraph 1.</p>
+<p>This is paragraph 2.</p>
+<p>This is paragraph 3.</p>
+</body>
+</html>

@@ -29,4 +29,6 @@ Updates
 
 07/28/2014 - Created git repository and updated readme
 
+07/29/2014 - Added sample files.
+
 2014

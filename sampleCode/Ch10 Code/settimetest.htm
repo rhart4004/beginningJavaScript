@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>example 2</title>
+
+</head>
+<body>
+<div id="DisplayResultsDiv"></div>
+
+<script type="text/javascript"> 
+
+	var myDate = new Date();
+	myDate.setUTCHours(12);
+	myDate.setUTCMinutes(0);
+	myDate.setUTCSeconds(0);
+	var resultsHTML = '<p>' +  myDate.toUTCString() + '</p>';
+	resultsHTML += '<p>' +  myDate.toLocaleString() + '</p>';
+	
+	document.getElementById('DisplayResultsDiv').innerHTML = resultsHTML;
+
+</script>
+
+</body>
+</html> 

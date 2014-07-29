@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>example 6</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/JavaScript">
+function button1_onclick() 
+{
+   var myString = "<table align=center><tr><td>";
+   myString = myString + "Hello World</td></tr></table>";
+   myString = myString +"<br><h2>Heading</h2>";
+   var myRegExp = /<[^>\r\n]+>|[^<>\r\n]+/g;
+   var resultsArray = myString.match(myRegExp);
+   document.form1.textarea1.value = "";
+   document.form1.textarea1.value = resultsArray.join ("\r\n");
+}
+</script>
+</head>
+<body>
+<form name="form1">
+   <textarea rows="20" cols="40" name="textarea1"></textarea>
+   <input type="button" value="Split HTML" name="button1" 
+      onclick="return button1_onclick();">
+</form>
+
+</body>
+</html>

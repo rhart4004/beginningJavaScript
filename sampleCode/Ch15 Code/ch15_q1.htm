@@ -1,0 +1,152 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+    
+<html>
+<head>
+    <title>Chapter 15: Question 1 Answer with jQuery</title>
+    <style type="text/css">
+        .fieldname
+        {
+            text-align: right;
+        }
+        
+        .submit
+        {
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    <script type="text/javascript">
+        var isUsernameTaken;
+        var isEmailTaken;
+
+        function checkUsername_callBack(data, status) 
+        {
+            if (data == "available") 
+            {
+                isUsernameTaken = false;
+            } 
+            else 
+            {
+                isUsernameTaken = true;
+            }
+        }
+
+        function checkEmail_callBack(data, status) 
+        {
+            if (data == "available") 
+            {
+                isEmailTaken = false;
+            } 
+            else 
+            {
+                isEmailTaken = true;
+            }
+        }
+
+        function form_submit() 
+        {
+            //First check the username
+            var userValue = $("#username").val();
+            
+            if (userValue == "") 
+            {
+                alert("Please enter a user name to check!");
+                return false;
+            }
+
+            var userParms = new Object();
+            userParms.username = userValue;
+
+            $.get("formvalidator.php", userParms, checkUsername_callBack);
+            
+            if (isUsernameTaken) 
+            {
+                alert("The username " + userValue + " is not available!");
+                return false;
+            }
+            
+            //Now check the email
+            var emailValue = $("#email").val();
+            
+            if (emailValue == "") 
+            {
+                alert("Please enter an email address to check!");
+                return false;
+            }
+
+            var emailParms = new Object();
+            emailParms.email = emailValue;
+
+            $.get("formvalidator.php", emailParms, checkEmail_callBack);
+            
+            if (isEmailTaken) 
+            {
+                alert("I'm sorry, but " + emailValue + " is in use by another user.");
+                return false;
+            }
+            
+            //If the code's made it this far, everything's good
+            return true;
+        }
+
+        var ajaxOptions = new Object();
+        ajaxOptions.async = false;
+
+        $.ajaxSetup(ajaxOptions);
+
+        function request_error(event, request, settings)
+        {
+            alert("An error occurred with the following URL:\n"
+             + settings.url + ".\nStatus code: " + request.status);
+        }
+
+        $(document).ajaxError(request_error);
+    </script>
+</head>
+<body>
+    <form onsubmit="return form_submit()">
+        <table>
+            <tr>
+                <td class="fieldname">
+                    Username:
+                </td>
+                <td>
+                    <input type="text" id="username" />
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Email:
+                </td>
+                <td>
+                    <input type="text" id="email" />
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Password:
+                </td>
+                <td>
+                    <input type="text" id="password" />
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Verify Password:
+                </td>
+                <td>
+                    <input type="text" id="password2" />
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

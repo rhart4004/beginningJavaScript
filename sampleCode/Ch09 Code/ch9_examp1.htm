@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Example 1</title>
+<script language="JavaScript" type="text/JavaScript">
+function splitAndReverseText(textAreaControl)
+{
+
+   var textToSplit = textAreaControl.value;
+   var textArray = textToSplit.split('\n');
+   var numberOfParts = 0;
+   numberOfParts = textArray.length;
+   var reversedString = "";
+   var indexCount;
+   for (indexCount = numberOfParts - 1; indexCount >= 0; indexCount--)
+   {
+      reversedString = reversedString + textArray[indexCount];
+      if (indexCount > 0)
+      {
+         reversedString = reversedString + "\n";
+      }
+   }
+
+   textAreaControl.value = reversedString;
+}
+</script>
+</head>
+<body>
+<form name="form1">
+<textarea rows="20" cols="40" name="textarea1" wrap="soft">Line 1
+Line 2
+Line 3
+Line 4</textarea>
+<br />
+<input type="button" value="Reverse Line Order" name="buttonSplit"
+   onclick="splitAndReverseText(document.form1.textarea1)">
+</form>
+</body>
+</html> 

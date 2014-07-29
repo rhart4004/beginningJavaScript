@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 5: Question 2</title>
+</head>
+<body>
+<script type="text/javascript">
+var inputName = "";
+var namesArray = new Array();
+
+while ( (inputName = prompt("Enter a name","")) != "" )
+{
+    namesArray[namesArray.length] = inputName;
+}
+
+namesArray.sort();
+
+var namesList = namesArray.join("<br/>")
+document.write(namesList);
+</script>
+</body>
+</html>

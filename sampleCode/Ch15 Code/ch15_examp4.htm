@@ -1,0 +1,140 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Chapter 15: Example 4 with jQuery</title>
+    <style type="text/css">
+        .fieldname
+        {
+            text-align: right;
+        }
+        
+        .submit
+        {
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    <script type="text/javascript">
+    function checkUsername()
+    {
+        var userValue = $("#username").val();
+
+        if (userValue == "")
+        {
+            alert("Please enter a user name to check!");
+            return;
+        }
+
+        var parms = new Object();
+        parms.username = userValue;
+
+        $.get("formvalidator.php", parms, checkUsername_callBack);
+    }
+
+    function checkUsername_callBack(data, status)
+    {
+        var userValue = $("#username").val();
+
+        if (data == "available")
+        {
+            alert("The username " + userValue + " is available!");
+        }
+        else
+        {
+            alert("We're sorry, but " + userValue + " is not available.");
+        }
+    }
+
+    function checkEmail()
+    {
+        var emailValue = $("#email").val();
+
+        if (emailValue == "")
+        {
+            alert("Please enter an email address to check!");
+            return;
+        }
+
+        var parms = new Object();
+        parms.email = emailValue;
+
+        $.get("formvalidator.php", parms, checkEmail_callBack);
+    }
+
+    function checkEmail_callBack(data, status)
+    {
+        var emailValue = $("#email").val();
+
+        if (data == "available")
+        {
+            alert("The email " + emailValue + " is currently not in use!");
+        }
+        else
+        {
+            alert("I'm sorry, but " + emailValue + " is in use by another user.");
+        }
+    }
+
+    function request_error(event, request, settings)
+    {
+        alert("An error occurred with the following URL:\n"
+             + settings.url + ".\nStatus code: " + request.status);
+    }
+
+    $(document).ajaxError(request_error);
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td class="fieldname">
+                    Username:
+                </td>
+                <td>
+                    <input type="text" id="username" />
+                </td>
+                <td>
+                    <a href="javascript: checkUsername()">Check Availability</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Email:
+                </td>
+                <td>
+                    <input type="text" id="email" />
+                </td>
+                <td>
+                    <a href="javascript: checkEmail()">Check Availability</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Password:
+                </td>
+                <td>
+                    <input type="text" id="password" />
+                </td>
+                <td />
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Verify Password:
+                </td>
+                <td>
+                    <input type="text" id="password2" />
+                </td>
+                <td />
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <input type="submit" value="Submit" />
+                </td>
+                <td />
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

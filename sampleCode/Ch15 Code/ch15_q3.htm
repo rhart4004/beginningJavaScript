@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+    
+<html>
+<head>
+    <title>Chapter 15: Question 3 Answer with MooTools</title>
+    <style type="text/css">
+        .fieldname
+        {
+            text-align: right;
+        }
+        
+        .submit
+        {
+            text-align: right;
+        }
+    </style>
+    <script src="mootools-1.2.3-core-yc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var isUsernameTaken;
+        var isEmailTaken;
+
+        function checkUsername_callBack(text, xml) 
+        {
+            if (text == "available") 
+            {
+                isUsernameTaken = false;
+            } 
+            else 
+            {
+                isUsernameTaken = true;
+            }
+        }
+
+        function checkEmail_callBack(text, xml) 
+        {
+            if (text == "available") 
+            {
+                isEmailTaken = false;
+            } 
+            else 
+            {
+                isEmailTaken = true;
+            }
+        }
+
+        function form_submit() 
+        {
+            //First check the username
+            var userValue = $("username").value;
+            
+            if (userValue == "") 
+            {
+                alert("Please enter a user name to check!");
+                return false;
+            }
+
+            var options = getBasicOptions();
+            options.onSuccess = checkUsername_callBack;
+
+            new Request(options).send("username=" + userValue);
+            
+            if (isUsernameTaken) 
+            {
+                alert("The username " + userValue + " is not available!");
+                return false;
+            }
+            
+            //Now check the email
+            var emailValue = $("email").value;
+            
+            if (emailValue == "") 
+            {
+                alert("Please enter an email address to check!");
+                return false;
+            }
+
+            options.onSuccess = checkEmail_callBack;
+
+            new Request(options).send("email=" + emailValue);
+            
+            if (isEmailTaken) 
+            {
+                alert("I'm sorry, but " + emailValue + " is in use by another user.");
+                return false;
+            }
+            
+            //If the code's made it this far, everything's good
+            return true;
+        }
+
+        function request_onfailure(request)
+        {
+            alert("An error occurred. HTTP Status Code: " + request.status);
+        }
+
+        function getBasicOptions()
+        {
+            var options = new Object();
+            options.method = "get";
+            options.onFailure = request_onfailure;
+            options.url = "formvalidator.php";
+            options.async = false;
+
+            return options;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return form_submit()">
+        <table>
+            <tr>
+                <td class="fieldname">
+                    Username:
+                </td>
+                <td>
+                    <input type="text" id="username" />
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Email:
+                </td>
+                <td>
+                    <input type="text" id="email" />
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Password:
+                </td>
+                <td>
+                    <input type="text" id="password" />
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Verify Password:
+                </td>
+                <td>
+                    <input type="text" id="password2" />
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

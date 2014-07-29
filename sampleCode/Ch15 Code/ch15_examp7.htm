@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 15: Example 7 with MooTools</title>
+    <style type="text/css">
+    .tabStrip
+    {
+        background-color: #E4E2D5;
+        padding: 3px;
+        height: 22px;
+    }
+
+    .tabStrip-tab 
+    {
+    	float: left;
+        font: 14px arial;
+        cursor: pointer;
+        padding: 2px;
+        border: 1px solid transparent;
+    }
+
+    .tabStrip-tab-hover 
+    {
+        border-color: #316AC5;
+        background-color: #C1D2EE;
+    }
+
+    .tabStrip-tab-click
+    {
+        border-color: #facc5a;
+        background-color: #f9e391;
+    }
+    </style>
+    <script src="mootools-1.2.3-core-yc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var currentNum = 0;
+    function handleEvent(e)
+    {
+        var el = $(e.target);
+        
+        if (e.type == "mouseover" || e.type == "mouseout")
+        {
+            if (el.hasClass("tabStrip-tab") && !el.hasClass("tabStrip-tab-click"))
+            {
+                el.toggleClass("tabStrip-tab-hover");
+            }
+        }
+
+        if (e.type == "click")
+        {
+            if (el.hasClass("tabStrip-tab-hover"))
+            {
+                var id = el.id;
+                var num = id.substr(id.lastIndexOf("-") + 1);
+                
+                if (currentNum != num)
+                {
+                    deactivateTab();
+
+                    el.toggleClass("tabStrip-tab-hover")
+                        .toggleClass("tabStrip-tab-click");
+                    showDescription(num);
+                    currentNum = num;
+                }
+            }
+        }
+    }
+
+    function showDescription(num)
+    {
+        var attributes = new Object();
+        attributes.id = "tabStrip-desc-" + num;
+        
+        var div = new Element("div", attributes)
+            .appendText("Description for tab " + num);
+
+        $("descContainer").adopt(div);
+    }
+
+    function deactivateTab()
+    {
+        var descEl = $("tabStrip-desc-" + currentNum);
+
+        if (descEl)
+        {
+            descEl.dispose();
+            $("tabStrip-tab-" + currentNum).toggleClass("tabStrip-tab-click");
+        }
+    }
+
+    var handlers = new Object();
+    handlers.mouseover = handleEvent;
+    handlers.mouseout = handleEvent;
+    handlers.click = handleEvent;
+
+    document.addEvents(handlers);   
+    </script>
+</head>
+<body>
+    <div class="tabStrip">
+        <div id="tabStrip-tab-1" class="tabStrip-tab">Tab 1</div>
+        <div id="tabStrip-tab-2" class="tabStrip-tab">Tab 2</div>
+        <div id="tabStrip-tab-3" class="tabStrip-tab">Tab 3</div>
+    </div>
+    <div id="descContainer"></div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Chapter 15: Example 8 with MooTools</title>
+    <style type="text/css">
+        .fieldname
+        {
+            text-align: right;
+        }
+        
+        .submit
+        {
+            text-align: right;
+        }
+    </style>
+    <script src="mootools-1.2.3-core-yc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function checkUsername()
+    {
+        var userValue = $("username").value;
+
+        if (userValue == "")
+        {
+            alert("Please enter a user name to check!");
+            return;
+        }
+
+        var options = getBasicOptions();
+        options.onSuccess = checkUsername_callBack;
+
+        new Request(options).send("username=" + userValue);
+    }
+
+    function checkUsername_callBack(text, xml)
+    {
+        var userValue = $("username").value;
+
+        if (text == "available")
+        {
+            alert("The username " + userValue + " is available!");
+        }
+        else
+        {
+            alert("We're sorry, but " + userValue + " is not available.");
+        }
+    }
+
+    function checkEmail()
+    {
+        var emailValue = $("email").value;
+
+        if (emailValue == "")
+        {
+            alert("Please enter an email address to check!");
+            return;
+        }
+
+        var options = getBasicOptions();
+        options.onSuccess = checkEmail_callBack;
+
+        new Request(options).send("email=" + emailValue);
+    }
+
+    function checkEmail_callBack(text, xml)
+    {
+        var emailValue = $("email").value;
+
+        if (text == "available")
+        {
+            alert("The email " + emailValue + " is currently not in use!");
+        }
+        else
+        {
+            alert("I'm sorry, but " + emailValue + " is in use by another user.");
+        }
+    }
+
+    function request_onfailure(request)
+    {
+        alert("An error occurred. HTTP Status Code: " + request.status);
+    }
+
+    function getBasicOptions()
+    {
+        var options = new Object();
+        options.method = "get";
+        options.onFailure = request_onfailure;
+        options.url = "formvalidator.php";
+
+        return options;
+    }
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td class="fieldname">
+                    Username:
+                </td>
+                <td>
+                    <input type="text" id="username" />
+                </td>
+                <td>
+                    <a href="javascript: checkUsername()">Check Availability</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Email:
+                </td>
+                <td>
+                    <input type="text" id="email" />
+                </td>
+                <td>
+                    <a href="javascript: checkEmail()">Check Availability</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Password:
+                </td>
+                <td>
+                    <input type="text" id="password" />
+                </td>
+                <td />
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Verify Password:
+                </td>
+                <td>
+                    <input type="text" id="password2" />
+                </td>
+                <td />
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <input type="submit" value="Submit" />
+                </td>
+                <td />
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

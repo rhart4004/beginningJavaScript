@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 6: Example 4</title>
+</head>
+<body>
+<script type="text/javascript">
+function linkSomePage_onclick()
+{
+    alert("This link is going nowhere");
+    return false;
+}
+</script>
+<a href="somepage.htm" name="linkSomePage">
+   Click Me
+</a>
+<script type="text/javaScript">
+   window.document.links[0].onclick = linkSomePage_onclick;
+</script>
+</body>
+</html>

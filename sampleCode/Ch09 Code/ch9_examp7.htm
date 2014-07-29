@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>example 7</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="ch9_examp7_module.js"></script>
+</head>
+<body>
+<form name="form1">
+  <p>
+    <label>
+      <input type="text" name="txtString" id="txtString" />
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="button" name="cmdIsValidTelephoneNumber" id="cmdIsValidTelephoneNumber" value="Is Valid Telephone Number?" onclick="alert('Is valid is ' + isValidTelephoneNumber( document.form1.txtString.value ))" />
+      <input type="button" name="cmdIsValidPostalCode" id="cmdIsValidPostalCode" value="Is Valid Postal Code?" onclick="alert('Is valid is ' + isValidPostalCode( document.form1.txtString.value ))" />
+      <input type="button" name="cmdIsEmailValid" id="cmdIsEmailValid" value="Is Valid Email?" onclick="alert('Is valid is ' + isValidEmail( document.form1.txtString.value ))" />
+    </label>
+  </p>
+</form>
+
+</body>
+</html>

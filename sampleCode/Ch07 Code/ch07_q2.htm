@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 7: Question 1</title>
+    <script type="text/javascript">
+    var compItems = new Array();
+    compItems[100] = 1000;
+    compItems[101] = 1250;
+    compItems[102] = 1500;
+
+    compItems[200] = 35;
+    compItems[201] = 65;
+    compItems[202] = 95;
+
+    compItems[300] = 50;
+    compItems[301] = 75;
+    compItems[302] = 100;
+
+    compItems[400] = 10;
+    compItems[401] = 15;
+    compItems[402] = 25;
+    function updateOrderDetails()
+    {
+        var total = 0;
+        var orderDetails = "";
+        var formElement;
+        var theForm = document.form1;
+        formElement = theForm.cboProcessor[theForm.cboProcessor.selectedIndex];
+        total = parseFloat(compItems[formElement.value]);
+        orderDetails = "Processor : " + formElement.text;
+        orderDetails = orderDetails + " $" + compItems[formElement.value] + "\n";
+
+        formElement = theForm.cboHardDrive[theForm.cboHardDrive.selectedIndex];
+        total = total + parseFloat(compItems[formElement.value]);
+        orderDetails = orderDetails + "Hard Drive : " + formElement.text;
+        orderDetails = orderDetails + " $" + compItems[formElement.value] + "\n";
+
+        formElement = theForm.chkCDROM;
+        if (formElement.checked == true)
+        {
+            orderDetails = orderDetails + "CD-ROM : $" + compItems[formElement.value] + "\n";
+            total = total + parseFloat(compItems[formElement.value]);
+        }
+
+        formElement = theForm.chkDVD;
+        if (formElement.checked == true)
+        {
+            orderDetails = orderDetails + "DVD-ROM : $" + compItems[formElement.value] + "\n";
+            total = total + parseFloat(compItems[formElement.value]);
+        }
+
+        formElement = theForm.chkScanner;
+        if (formElement.checked == true)
+        {
+            orderDetails = orderDetails + "Scanner : $" + compItems[formElement.value] + "\n";
+            total = total + parseFloat(compItems[formElement.value]);
+        }
+
+        formElement = theForm.radCase;
+        if (formElement[0].checked == true)
+        {
+            orderDetails = orderDetails + "Desktop Case : $" + compItems[formElement[0].value];
+            total = total + parseFloat(compItems[formElement[0].value]);
+        }
+        else if (formElement[1].checked == true)
+        {
+            orderDetails = orderDetails + "Mini Tower Case : $" + compItems[formElement[1].value];
+            total = total + parseFloat(compItems[formElement[1].value]);
+        }
+        else
+        {
+            orderDetails = orderDetails + "Full Tower Case : $" + compItems[formElement[2].value];
+            total = total + parseFloat(compItems[formElement[2].value]);
+        }
+
+        orderDetails = orderDetails + "\n\nTotal Order Cost is $" + total;
+
+        theForm.txtOrder.value = orderDetails;
+    }
+
+    </script>
+</head>
+<body>
+    <form action="" name="form1">
+        <table>
+            <tr>
+                <td width="300">
+                    Processor
+                    <br />
+                    <select name="cboProcessor">
+                        <option value="100">MegaPro 10ghz</option>
+                        <option value="101">MegaPro 12</option>
+                        <option value="102">MegaPro 15ghz</option>
+                    </select>
+                    <br />
+                    <br />
+                    Hard drive
+                    <br />
+                    <select name="cboHardDrive">
+                        <option value="200">30tb</option>
+                        <option value="201">40tb</option>
+                        <option value="202">60tb</option>
+                    </select>
+                    <br />
+                    <br />
+                    CD-ROM
+                    <input type="checkbox" name="chkCDROM" value="300" />
+                    <br />
+                    DVD-ROM
+                    <input type="checkbox" name="chkDVD" value="301" />
+                    <br />
+                    Scanner
+                    <input type="checkbox" name="chkScanner" value="302" />
+                    <br />
+                    <br />
+                    Desktop Case
+                    <input type="radio" name="radCase" checked value="400" />
+                    <br />
+                    Mini Tower
+                    <input type="radio" name="radCase" value="401" />
+                    <br />
+                    Full Tower
+                    <input type="radio" name="radCase" value="402" />
+                    <br />
+                    <br />
+                    <input type="button" value="Update" name="butUpdate" 
+                        onclick="updateOrderDetails()" />
+                </td>
+                <td>
+                    <textarea rows="20" cols="35" id="txtOrder" name="txtOrder"></textarea>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

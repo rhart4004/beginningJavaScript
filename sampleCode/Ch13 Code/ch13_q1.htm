@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 13: Question Answer</title>
+    <script type="text/javascript">
+    var plugInInstalled = false;
+    function play(fileName)
+    {
+        if (hasQuickTime)
+        {
+            document.audioPlayer.SetURL(fileName);
+            document.audioPlayer.Play();
+        }
+        else
+        {
+            alert("You must have QuickTime installed to play this file.");
+        }
+        return false;
+    }
+
+    function window_onload()
+    {
+        if (!window.ActiveXObject)
+        {
+            var pluginsLength = navigator.plugins.length;
+            for (var i = 0; i < pluginsLength; i++)
+            {
+                var pluginName = navigator.plugins[i].name.toLowerCase();
+                if (pluginName.indexOf("quicktime") > -1)
+                {
+                    plugInInstalled = true;
+                    break;
+                }
+            }
+        } 
+        else
+        {
+            if (document.audioPlayer.readyState == 4)
+            {
+                plugInInstalled = true;
+            }
+        }
+
+        if (!plugInInstalled)
+        {
+            alert("You need Quicktime to play the audio files!");
+        }
+    }
+
+    onload = window_onload;
+    </script>
+</head>
+<body>
+    <object id="audioPlayer" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab"
+        width="320" height="260">
+        <param name="src" value="sound1.mp3" />
+        <param name="controller" value="false" />
+        <param name="autoplay" value="false" />
+        <embed name="audioPlayer" height="260" width="320" src="sound1.mp3" type="video/quicktime"
+            pluginspage="www.apple.com/quicktime/download" controller="false" autoplay="false" />
+    </object>
+    <a href="#" onclick="return play('sound1.mp3')">Sound 1</a>
+    <a href="#" onclick="return play('sound2.mp3')">Sound 2</a> 
+    <a href="#" onclick="return play('sound3.mp3')">Sound 3</a>
+</body>
+</html>

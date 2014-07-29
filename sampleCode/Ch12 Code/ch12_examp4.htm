@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 12: Example 4</title>
+    <style type="text/css">
+    #divAdvert
+    {
+        font: 12pt arial;
+    }
+    </style>
+    <script type="text/javascript">
+    function divAdvert_onMouseOver()
+    {
+        var divAdvert = document.getElementById("divAdvert");
+        divAdvert.style.fontStyle = "italic";
+        divAdvert.style.textDecoration = "underline";
+    }
+
+    function divAdvert_onMouseOut()
+    {
+        var divAdvert = document.getElementById("divAdvert");
+        divAdvert.style.fontStyle = "normal";
+        divAdvert.style.textDecoration = "none";
+    }
+    </script>
+</head>
+<body>
+    <div id="divAdvert" onmouseover="divAdvert_onMouseOver()" 
+        onmouseout="divAdvert_onMouseOut()">
+        Here is an advertisement.
+    </div>
+</body>
+</html>

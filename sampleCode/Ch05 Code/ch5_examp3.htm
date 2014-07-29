@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 5: Example 3</title>
+</head>
+<body>
+<script type="text/javascript">
+
+var myShopping = new Array("Eggs","Milk","Potatoes","Cereal","Banana");
+
+var ord = prompt("Enter 1 for alphabetical order, and -1 for reverse order", 1);
+
+if (ord == 1)
+{
+    myShopping.sort();
+    document.write(myShopping.join("<br />"));
+}
+else if (ord == -1)
+{
+    myShopping.sort();
+    myShopping.reverse();
+    document.write(myShopping.join("<br />"));
+}
+else
+{
+    document.write("That is not a valid input");
+}
+</script>
+</body>
+</html>

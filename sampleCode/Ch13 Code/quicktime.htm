@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Using JavaScript to Interface with Quicktime</title>
+
+    <script type="text/javascript">
+        function buttonPlay_onclick() {
+            document.audioPlayer.Play();
+        }
+
+        function buttonStop_onclick() {
+            document.audioPlayer.Stop();
+        }
+
+        function window_onload() {
+            var plugInInstalled = false;
+            if (!window.ActiveXObject) {
+                var pluginsLength = navigator.plugins.length;
+                for (var i = 0; i < pluginsLength; i++) {
+                    var pluginName = navigator.plugins[i].name.toLowerCase();
+                    if (pluginName.indexOf("quicktime") > -1) {
+                        plugInInstalled = true;
+                        break;
+                    }
+                }
+            } else {
+                if (document.audioPlayer.readyState == 4) {
+                    plugInInstalled = true;
+                }
+            }
+
+            if (!plugInInstalled) {
+                document.forms[0].buttonPlay.disabled = true;
+                document.forms[0].buttonStop.disabled = true;
+                alert("You need Quicktime to play the audio file!");
+            }
+        }
+
+        onload = window_onload;
+    </script>
+</head>
+<body>
+    <object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab" id="audioPlayer" width="0" height="0">
+        <param name="src" value="sound1.mp3" />
+        <embed height="0" width="0" type="audio/mpeg" src="sound1.mp3" pluginspage="www.apple.com/quicktime/download" enablejavascript="true" name="audioPlayer" />
+    </object>
+    <form id="form1" name="form1" action="">
+        <input type="button" value="Play" id="buttonPlay" name="buttonPlay" onclick="buttonPlay_onclick()" />
+        <input type="button" value="Stop" id="buttonStop" name="buttonStop" onclick="buttonStop_onclick()" />
+    </form>
+</body>
+</html>

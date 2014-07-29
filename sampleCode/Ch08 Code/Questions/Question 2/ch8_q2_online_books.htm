@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 8: Question 2</title>
+    <script type="text/javascript">
+    var detailsWindow;
+    var basketWindow;
+
+    var stockItems = new Array();
+    stockItems[0] = new StockItem("Professional Ajax, 2nd Edition", "$39.99");
+    stockItems[1] = new StockItem("Professonal JavaScript, 2nd Edition", "$46.99");
+
+    function removeItem(stockId)
+    {
+        stockItems[stockId].quantity = 0;
+        alert("Item Removed");
+        showBasket();
+        return false;
+    }
+    
+    function addBookToBasket(stockId)
+    {
+        stockItems[stockId].quantity = 1;
+        alert("Item added successfully");
+        detailsWindow.close();
+    }
+
+    function showDetails(bookURL)
+    {
+        detailsWindow = window.open(bookURL, "bookDetails", "width=400,height=500");
+        detailsWindow.focus();
+        return false;
+    }
+
+    function showBasket()
+    {
+        basketWindow = window.open('about:blank', 'shoppingBasket', 'width=400,height=350');
+        basketWindow.document.open();
+        var basketItem;
+        var containsItems = false;
+        basketWindow.document.write("<h4>Your shopping basket contains :</h4>");
+        
+        for (var i = 0; i < stockItems.length; i++)
+        {
+            var stockItem = stockItems[i];
+            
+            if (stockItem.quantity > 0)
+            {
+                basketWindow.document.write(stockItem.title + " at ");
+                basketWindow.document.write(stockItem.price);
+                basketWindow.document.write("&nbsp&nbsp&nbsp&nbsp");
+                basketWindow.document.write("<a href='' onclick='return " 
+                    + "window.opener.removeItem(" + i + ")'>");
+                basketWindow.document.write("Remove Item</a><br />");
+                containsItems = true;
+            }
+        }
+
+        if (!containsItems)
+        {
+            basketWindow.document.write("<h4>No items</h4>");
+        }
+        
+        basketWindow.document.close();
+        basketWindow.focus();
+    }
+    
+    function StockItem(title, price)
+    {
+        this.title = title;
+        this.price = price;
+        this.quantity = 0;
+    }
+    </script>
+</head>
+<body>
+    <h2 align="center">
+        Online Book Buyer</h2>
+    <form name="form1" action="">
+        <input type="button" value="Show Shopping Basket" onclick="showBasket()" name="btnShowBasket" />
+    </form>
+    <p>
+        Click any of the images below for more details
+    </p>
+    <h4>Professional Ajax</h4>
+    <p>
+        <img src="pro_ajax.jpg" alt="Professional Ajax, 2nd Edition" border="0" 
+            onclick="showDetails('pro_ajax_details.htm')" />
+    </p>
+    <h4>Professional JavaScript for Web Developers</h4>
+    <p>
+        <img src="pro_js.jpg" alt="Professional JavaScript, 2nd Edition" border="0" 
+            onclick="showDetails('pro_js_details.htm')" />
+    </p>
+</body>
+</html>

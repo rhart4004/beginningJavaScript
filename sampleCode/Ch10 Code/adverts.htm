@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<script language=JavaScript type="text/javascript">
+var currentImgNumber = 1;
+var numberOfImages = 3;
+function window_onload()
+{
+   setTimeout("switchImage()",3000);
+}
+function switchImage()
+{
+   currentImgNumber++;
+   document.imgAdvert.src = 'AdvertImage' + currentImgNumber + '.jpg';
+   if (currentImgNumber < numberOfImages)
+   {
+      setTimeout("switchImage()",3000);   }
+   }
+</script>
+</head>
+<body onload="window_onload()">
+<img src="AdvertImage1.jpg" name="imgAdvert">
+
+
+
+</body>
+</html>

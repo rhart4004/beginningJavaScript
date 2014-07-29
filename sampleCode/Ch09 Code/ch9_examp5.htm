@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>example</title>
+<script type="text/JavaScript">
+function replaceQuote(textAreaControl)
+{
+   var myText = textAreaControl.value;
+   var myRegExp = /\B'|'\B/g;
+   myText = myText.replace(myRegExp,'"');
+   textAreaControl.value = myText;
+}
+</script>
+</head>
+<body>
+<form name="form1">
+<textarea rows="20" cols="40" name="textarea1">
+'Hello World' said Mr O’Connerly.
+He then said 'My Name is O’Connerly, yes that’s right, O’Connerly'.
+</textarea>
+<br>
+<input type="button" VALUE="Replace Single Quotes" name="buttonSplit"
+   onclick="replaceQuote(document.form1.textarea1)">
+</form>
+
+</body>
+</html>

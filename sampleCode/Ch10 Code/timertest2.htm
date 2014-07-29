@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<script type="text/javascript">
+var timerID;
+function window_onload()
+{
+   timerID = setTimeout("alert('Times Up!')",3000);
+   alert('Timer Set');
+}
+
+function butStopTimer_onclick() 
+{
+   clearTimeout(timerID);
+   alert("Timer has been cleared");
+}
+
+</script>
+</head>
+<body onload="window_onload()">
+
+<form name="form1">
+<input type="button" value="Stop Timer" name="butStopTimer" 
+   onclick="return butStopTimer_onclick()" />
+</form>
+
+
+</body>
+</html>

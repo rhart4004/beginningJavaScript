@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+
+<script type="text/javascript">
+
+function writeTimesTable(timesTable, timesByStart, timesByEnd)
+{
+   for (;timesByStart <= timesByEnd; timesByStart++)
+   {
+      document.write(timesTable + " * " + timesByStart + " = " +
+         timesByStart * timesTable + "<br />");
+   }
+}
+
+var timesTable;
+
+while ( (timesTable = prompt("Enter the times table",-1)) != -1)
+{
+   while (isNaN(timesTable) == true)
+   {
+    timesTable = prompt(timesTable + " is not a valid number, please retry",-1);
+   }
+
+   if (timesTable == -1)
+   {
+      break;
+   }
+
+   document.write("<br />The " + timesTable + " times table<br />");
+   writeTimesTable(timesTable,1,12);
+
+}
+
+
+</script>
+
+</body>
+</html>

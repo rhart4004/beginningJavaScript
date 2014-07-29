@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+
+var imagesSelected = new Array(false,false,false);
+var noOfImages = 3;
+var totalImagesSelected = 0;
+
+function window_onload() 
+{
+   setInterval("switchImage()",4000);
+}
+
+function switchImage() 
+{
+
+   var imageIndex;
+
+   if (totalImagesSelected == noOfImages)
+   {
+      for (imageIndex = 0; imageIndex < noOfImages; imageIndex++)
+      {
+         imagesSelected[imageIndex] = false;
+      }
+
+      totalImagesSelected = 0;
+   }
+
+var selectedImage = Math.floor(Math.random() * noOfImages) + 1;
+while (imagesSelected[selectedImage - 1] == true)
+{
+      selectedImage = Math.floor(Math.random() * noOfImages) + 1;
+   }
+   totalImagesSelected++;
+   imagesSelected[selectedImage - 1] = true;
+   document.imgAdvert.src = "AdvertImage" + selectedImage + ".jpg";
+
+}
+
+</script>
+</head>
+<body onload="window_onload()">
+<img src="AdvertImage1.jpg" name="imgAdvert" />
+</body>
+</html>

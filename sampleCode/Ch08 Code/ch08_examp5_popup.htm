@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 8: Example 5 Popup</title>
+    <script type="text/javascript">
+    function btnGetText_onclick()
+    {
+        document.form1.text1.value = window.opener.document.form1.text1.value;
+    }
+    </script>
+</head>
+<body>
+    <form name="form1" action="">
+        Opener window's text<br />
+        <input type="text" name="text1" />
+        <input type="button" value="Get Text" name="btnGetText" 
+            onclick="btnGetText_onclick()" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 12: Example 10</title>
+    <style type="text/css">
+    .tabStrip
+    {
+        background-color: #E4E2D5;
+        padding: 3px;
+        height: 22px;
+    }
+
+    .tabStrip div 
+    {
+        float: left;
+        font: 14px arial;
+        cursor: pointer;
+    }
+
+    .tabStrip-tab 
+    {
+        padding: 3px;
+    }
+
+    .tabStrip-tab-hover 
+    {
+        border: 1px solid #316AC5;
+        background-color: #C1D2EE;
+        padding: 2px;
+    }
+
+    .tabStrip-tab-click
+    {
+        border: 1px solid #facc5a;
+        background-color: #f9e391;
+        padding: 2px;
+    }
+    </style>
+    <script type="text/javascript">
+function handleEvent(e)
+{
+    var eSrc;
+
+    if (window.event)
+    {
+        e = window.event;
+        eSrc = e.srcElement;
+    }
+    else
+    {
+        eSrc = e.target;
+    }
+
+    if (e.type == "mouseover")
+    {
+        if (eSrc.className == "tabStrip-tab")
+        {
+            eSrc.className = "tabStrip-tab-hover";
+        }
+    }
+
+    if (e.type == "mouseout")
+    {
+        if (eSrc.className == "tabStrip-tab-hover")
+        {
+            eSrc.className = "tabStrip-tab";
+        }
+    }
+
+    if (e.type == "click")
+    {
+        if (eSrc.className == "tabStrip-tab-hover")
+        {
+            eSrc.className = "tabStrip-tab-click";
+            var num = eSrc.id.substr(eSrc.id.lastIndexOf("-") + 1);
+
+            showDescription(num);
+        }
+    }
+}
+
+function showDescription(num)
+{
+    var descContainer = document.getElementById("descContainer");
+
+    var div = document.createElement("div");
+    var text = document.createTextNode("Description for tab " + num);
+
+    div.appendChild(text);
+    descContainer.appendChild(div);
+}
+
+    document.onclick = handleEvent;
+    document.onmouseover = handleEvent;
+    document.onmouseout = handleEvent;
+    </script>
+</head>
+<body>
+    <div class="tabStrip">
+        <div id="tabStrip-tab-1" class="tabStrip-tab">Tab 1</div>
+        <div id="tabStrip-tab-2" class="tabStrip-tab">Tab 2</div>
+        <div id="tabStrip-tab-3" class="tabStrip-tab">Tab 3</div>
+    </div>
+    <div id="descContainer"></div>
+</body>
+</html>

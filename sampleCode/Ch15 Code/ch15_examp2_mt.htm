@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 15: Example 2 MooTools</title>
+    <script type="text/javascript" src="mootools-1.2.3-core-yc.js"></script>
+        <script type="text/javascript">
+        function window_domready()
+        {
+            $(document.body).setProperty("bgColor", "yellow")
+                .set("html", "<h1>Hello, MooTools World!</h1>");
+        }
+
+        window.addEvent("domready", window_domready);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

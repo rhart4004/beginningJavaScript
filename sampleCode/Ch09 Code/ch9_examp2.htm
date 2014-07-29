@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Regular Expression Tester</title>
+<style type="text/css">
+
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function getRegExpFlags()
+{
+	var regExpFlags = '';
+	if ( document.form1.chkGlobal.checked )
+	{
+		regExpFlags = 'g';	
+	}
+	
+	if ( document.form1.chkCaseInsensitive.checked )
+	{
+		regExpFlags += 'i';	
+	}
+
+	if ( document.form1.chkMultiLine.checked )
+	{
+		regExpFlags += 'm';	
+	}
+	
+	return regExpFlags;
+
+}
+
+function doTest()
+{
+	var testRegExp = new RegExp(document.form1.txtRegularExpression.value, getRegExpFlags());
+	if ( testRegExp.test(document.form1.txtTestString.value) )
+	{
+		document.form1.txtTestResult.value = "Match Found!";
+	}
+	else
+	{
+		document.form1.txtTestResult.value = "Match NOT Found!";	
+	}
+}
+
+function findMatches()
+{
+	var testRegExp = new RegExp(document.form1.txtRegularExpression.value, getRegExpFlags());
+	var myTestString = new String(document.form1.txtTestString.value)
+	var matchArray = myTestString.match(testRegExp);
+	
+	document.form1.txtTestResult.value = matchArray.join('\n');
+	
+}
+
+</script>
+
+</head>
+<body>
+
+<form id="form1" name="form1" method="post" action="">
+  <p>
+    Regular Expression:<br />
+<label>
+      <input name="txtRegularExpression" type="text" id="txtRegularExpression" size="100" value=""/>
+      <br />
+      Global 
+      <input name="chkGlobal" type="checkbox" id="chkGlobal" value="true" />
+</label>
+  
+  Case Insensitive
+  <label>
+    <input name="chkCaseInsensitive" type="checkbox" id="chkCaseInsensitive" value="true" />
+  </label>
+  
+  Multi Line
+  <label>
+    <input name="chkMultiLine" type="checkbox" id="chkMultiLine" value="true" />
+  </label>
+  </p>
+  <p>
+    <label>
+      Test Text:<br />
+      <textarea name="txtTestString" id="txtTestString" cols="100" rows="8"></textarea>
+    </label>
+  </p>
+  <p>Result:<br />
+    <textarea name="txtTestResult" id="txtTestResult" cols="100" rows="8"></textarea>
+  </p>
+  <p>
+    <label>
+      <input type="button" name="cmdTest" id="cmdTest" value="TEST" onclick="doTest();"/>
+    </label>
+    <label>
+      <input type="button" name="cmdMatch" id="cmdMatch" value="MATCH" onclick="findMatches();" />
+    </label>
+    <label>
+      <input type="reset" name="cmdClearForm" id="cmdClearForm" value="Reset Form" />
+    </label>
+  </p>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>

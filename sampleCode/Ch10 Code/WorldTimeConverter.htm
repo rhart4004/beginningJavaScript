@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>example 3</title>
+
+<script type="text/javascript">
+var timeDiff;
+var selectedCity;
+var daylightSavingAdjust = 0;
+
+function window_onload()
+{
+   updateTimeZone();
+   window.setInterval("updateTime()",1000);
+}
+
+
+function updateTimeZone() 
+{
+   var lstCity = document.form1.lstCity;
+   timeDiff = lstCity.options[lstCity.selectedIndex].value;
+   selectedCity = lstCity.options[lstCity.selectedIndex].text;
+   updateTime();
+}
+function getTimeString(dateObject)
+{
+   var timeString;
+   var hours = dateObject.getHours();
+   if (hours < 10)
+      hours = "0" + hours;
+   var minutes = dateObject.getMinutes();
+   if (minutes < 10)
+      minutes = "0" + minutes;
+   var seconds = dateObject.getSeconds()
+   if (seconds < 10)
+      seconds = "0" + seconds;
+   timeString = hours + ":" + minutes + ":" + seconds;
+   return timeString;
+}
+function updateTime()
+{
+   var nowTime = new Date();
+   var resultsText = '<p>Local Time is ' + getTimeString(nowTime) + '</p>';
+   
+   nowTime.setMinutes(nowTime.getMinutes() + nowTime.getTimezoneOffset() + 
+      parseInt(timeDiff) + daylightSavingAdjust);
+   
+   resultsText += '<p>' + selectedCity + ' time is ' + getTimeString(nowTime) + '</p>';
+   
+   document.getElementById('ConversionResultsDIV').innerHTML = resultsText;
+   
+}
+function chkDaylightSaving_onclick()
+{
+   if (document.form1.chkDaylightSaving.checked)
+   {
+      daylightSavingAdjust = 60;
+   }
+   else
+   {
+      daylightSavingAdjust = 0;
+   }
+   updateTime();
+}
+
+
+
+</script>
+</head>
+<body onload="return window_onload()">
+
+<div id="ConversionResultsDIV"></div>
+
+<form name="form1">
+<select size="5" name="lstCity" onchange="updateTimeZone();">
+<option value="60" selected>Berlin 
+<option value="330">Bombay 
+<option value="0">London 
+<option value="180">Moscow 
+<option value="-300">New York (EST) 
+<option value="60">Paris 
+<option value="-480">San Francisco (PST) 
+<option value="600">Sydney 
+</select>
+<p>
+It’s summertime in the selected city 
+and its country adjusts for summertime daylight saving
+<input type="checkbox" name="chkDaylightSaving" 
+   onclick="return chkDaylightSaving_onclick()">
+</p>
+</form>
+
+
+</body>
+</html> 

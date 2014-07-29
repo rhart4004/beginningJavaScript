@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>example 1</title>
+
+</head>
+<body>
+<div id="DisplayResultsDiv"></div>
+
+<script type="text/javascript"> 
+  var localTime = new Date();
+  var resultsHTML = '<p>UTC Time is ' + localTime.toUTCString() + '</p>';
+  resultsHTML += 'Local Time is ' + localTime.toLocaleString() + '</p>';
+  
+  resultsHTML += '<p>Time Zone Offset is ' + localTime.getTimezoneOffset() + '</p>';
+  resultsHTML += '<p>Using toLocalTimeString() gives: ' + localTime.toLocaleTimeString() + '</p>';
+  resultsHTML += '<p>Using toTimeString() gives: ' + localTime.toTimeString() + '</p>';
+  resultsHTML += '<p>Using toLocaleDateString() gives: ' + localTime.toLocaleDateString() + '</p>';
+  resultsHTML += '<p>Using toDateString() gives: : ' + localTime.toDateString() + '</p>';
+  document.getElementById('DisplayResultsDiv').innerHTML = resultsHTML;
+  
+</script>
+
+</body>
+</html> 

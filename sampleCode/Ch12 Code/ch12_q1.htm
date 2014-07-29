@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 12: Question 1 Answer</title>
+</head>
+<body>
+<script type="text/javascript">
+var tableElem = document.createElement("table")
+var thElem = document.createElement("thead")
+var trElem1 = document.createElement("tr")
+var trElem2 = document.createElement("tr")
+var trElem3 = document.createElement("tr")
+var tdElem1 = document.createElement("td")
+var tdElem2 = document.createElement("td")
+var tdElem3 = document.createElement("td")
+var tdElem4 = document.createElement("td")
+var tdElem5 = document.createElement("td")
+var tdElem6 = document.createElement("td")
+var tdElem7 = document.createElement("td")
+var tdElem8 = document.createElement("td")
+var tdElem9 = document.createElement("td")
+var tbodyElem = document.createElement("tbody")
+var textNodeA1 = document.createTextNode("Car")
+var textNodeA2 = document.createTextNode("Top Speed")
+var textNodeA3 = document.createTextNode("Price")
+var textNodeB1 = document.createTextNode("Chevrolet")
+var textNodeB2 = document.createTextNode("120mph")
+var textNodeB3 = document.createTextNode("$10,000")
+var textNodeC1 = document.createTextNode("Pontiac")
+var textNodeC2 = document.createTextNode("140mph")
+var textNodeC3 = document.createTextNode("$14,000")
+
+docNavigate = document.documentElement;  //Starts with HTML document
+docNavigate = docNavigate.firstChild.nextSibling;  // Moves to head 
+                                                   // then body element
+docNavigate.appendChild(tableElem);      //Adds the table element
+docNavigate = docNavigate.lastChild;     //Moves to the table element
+docNavigate.appendChild(thElem);         //Adds the thead element
+docNavigate = docNavigate.firstChild;    //Moves to the thead element
+docNavigate.appendChild(trElem1);        //Adds the TR element
+docNavigate = docNavigate.firstChild;    //Moves the TR element
+docNavigate.appendChild(tdElem1);        //Adds the first TD element in the 
+                                         // heading
+docNavigate.appendChild(tdElem2);        //Adds the second TD element in the 
+                                         // heading
+docNavigate.appendChild(tdElem3);        //Adds the third TD element in the 
+                                         // heading
+docNavigate = docNavigate.firstChild;    //Moves to the first TD element
+docNavigate.appendChild(textNodeA1);     //Adds the second text node
+docNavigate = docNavigate.nextSibling;   //Moves to the next TD element
+docNavigate.appendChild(textNodeA2);     //Adds the second text node
+docNavigate = docNavigate.nextSibling;   //Moves to the next TD element
+docNavigate.appendChild(textNodeA3);     //Adds the third text node
+
+docNavigate = docNavigate.parentNode;    //Moves back to the TR element
+docNavigate = docNavigate.parentNode;    //Moves back to the thead element
+docNavigate = docNavigate.parentNode;    //Moves back to the table element
+docNavigate.appendChild(tbodyElem);      //Adds the tbody element
+docNavigate = docNavigate.lastChild;     //Moves to the tbody element
+docNavigate.appendChild(trElem2);        //Adds the second TR element
+docNavigate = docNavigate.lastChild;     //Moves to the second TR element
+docNavigate.appendChild(tdElem4);        //Adds the TD element
+docNavigate.appendChild(tdElem5);        //Adds the TD element
+docNavigate.appendChild(tdElem6);        //Adds the TD element
+docNavigate = docNavigate.firstChild;    //Moves to the first TD element
+docNavigate.appendChild(textNodeB1);     //Adds the first text node
+docNavigate = docNavigate.nextSibling;   //Moves to the next TD element
+docNavigate.appendChild(textNodeB2);     //Adds the second text node
+docNavigate = docNavigate.nextSibling;   //Moves to the next TD element
+docNavigate.appendChild(textNodeB3);     //Adds the third text node
+docNavigate = docNavigate.parentNode;    //Moves back to the TR element
+docNavigate = docNavigate.parentNode;    //Moves back to the tbody element
+docNavigate.appendChild(trElem3);        //Adds the TR element
+docNavigate = docNavigate.lastChild;     //Moves to the TR element
+docNavigate.appendChild(tdElem7);        //Adds the TD element
+docNavigate.appendChild(tdElem8);        //Adds the TD element
+docNavigate.appendChild(tdElem9);        //Adds the TD element
+docNavigate = docNavigate.firstChild;    //Moves to the TD element
+docNavigate.appendChild(textNodeC1);     //Adds the first text node
+docNavigate = docNavigate.nextSibling;   //Moves to the next TD element
+docNavigate.appendChild(textNodeC2);     //Adds the second text node
+docNavigate = docNavigate.nextSibling;   //Moves to the next TD element
+docNavigate.appendChild(textNodeC3);     //Adds the third text node
+</script> 
+</body>
+</html>

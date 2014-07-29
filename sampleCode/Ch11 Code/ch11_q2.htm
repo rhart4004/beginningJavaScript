@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<script language="JavaScript" type="text/JavaScript" src="CookieFunctions.js"></script>
+</head>
+<body>
+<img src="AdvertImage1.jpg" name="imgAdvert">
+<script type="text/javascript">
+
+var imageNumber = getCookieValue("displayedImages");
+var totalImages = 3;
+
+if (imageNumber == null)
+{
+   imageNumber = "1";
+}
+else
+{
+   imageNumber = Math.floor(imageNumber) + 1;
+}
+
+if (totalImages == imageNumber)
+{
+   setCookie("displayedImages","","","Mon, 1 Jan 1970 00:00:00");
+}
+else
+{
+   setCookie("displayedImages",imageNumber,"","");
+}
+
+document.imgAdvert.src = "AdvertImage" + imageNumber + ".jpg";
+</script>
+</body>
