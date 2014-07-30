@@ -29,6 +29,6 @@ Updates
 
 07/28/2014 - Created git repository and updated readme
 
-07/29/2014 - Added sample files, r/n on chapter 1.
+07/29/2014 - Added sample files, r/n on chapter 1, r/n on chapter 2.
 
 2014
