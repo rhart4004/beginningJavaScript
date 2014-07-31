@@ -33,6 +33,6 @@ Updates
 
 07/30/2014 - Almost finished r/n on Chapter 3. Finished decisions and loops, just not functions.
 
-07/30/2014 - Finished r/n on Chapter 3. 
+07/31/2014 - Finished r/n on Chapter 3. 
 
 2014
