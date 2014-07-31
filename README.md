@@ -31,4 +31,6 @@ Updates
 
 07/29/2014 - Added sample files, r/n on chapter 1, r/n on chapter 2.
 
+07/30/2014 - Almost finished r/n on Chapter 3. Finished decisions and loops, just not functions.
+
 2014
