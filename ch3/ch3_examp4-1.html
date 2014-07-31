@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/html1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <body>
+
+        <script type="text/javascript">
+
+            var degFahren = new Array( 212, "string data", -459.15 ) ;
+            var degCent = new Array ;
+            var loopCounter ;
+
+            for ( loopCounter = 0 ; loopCounter <= 2 ; loopCounter++ ) 
+            {
+                if ( isNaN( degFahren[loopCounter] ) ) 
+                {
+                    alert( "Data '" + degFahren[loopCounter] + "' at array index " + loopCounter + " is invlaid.") ;
+                    continue ;
+                }
+                degCent[loopCounter] = 5/9 * (degFahren[loopCounter] - 32) ;
+            }
+
+            for ( loopCounter = 2 ; loopCounter >= 0 ; loopCounter-- ) 
+            {
+                document.write( "Value " + loopCounter + " was " + degFahren[loopCounter] + " deg Fahrenheit" ) ;
+                document.write( " which is " + degCent[loopCounter] + " deg Centigrade<br />" ) ;
+            }
+
+            var elementIndex ;
+            
+            document.write( "The temperatures in Fahrenheit are: <br /> " ) ;
+            document.write( "-------------------------------------------- <br />" ) ;
+            for ( elementIndex in degFahren ) 
+                document.write( degFahren[elementIndex] + '<br />' ) ;
+
+            document.write( "The temperatures in Centigrade are: <br /> " ) ;
+            document.write( "-------------------------------------------- <br />" ) ;
+            for ( elementIndex in degCent ) 
+                document.write( degCent[elementIndex] + '<br />' ) ;
+
+        </script>
+
+    </body>
+
+</html>
+ 

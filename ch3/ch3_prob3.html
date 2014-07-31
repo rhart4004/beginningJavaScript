@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/html1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <body>
+
+        <script type="text/javascript">
+            function timesTable ( num, start, stop )
+            {
+                var loopCounter ;
+
+                document.write( "The times table for " + num + ": <br />" ) ;
+                for ( loopCounter = start ; loopCounter <= stop ; loopCounter++ )
+                    document.write( num + " * " + loopCounter + " = " + loopCounter * num + "<br />" ) ;
+                document.write( "<br />" ) ;
+
+                return 0;
+            }
+
+            while( 1 )
+            {
+                var num, start, stop ;
+
+                num = prompt( "Please enter number for times table", "" ) ;
+                while ( isNaN( num ) )
+                    num = prompt( "Please enter number for times table", "" ) ;
+                if ( num == -1 )
+                    break ;
+                start = prompt( "Please enter the starting number", "" ) ;
+                while ( isNaN( start ) )
+                    start = prompt( "Please enter the starting number", "" ) ;
+                stop = prompt( "Please enter the ending number", "" ) ;
+                while ( isNaN( stop ) )
+                    stop = prompt( "Please enter the ending number", "" ) ;
+
+                
+                timesTable( num, start, stop ) ;
+                
+            }
+
+        </script>
+
+    </body>
+
+</html>
