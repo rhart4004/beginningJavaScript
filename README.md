@@ -35,4 +35,6 @@ Updates
 
 07/31/2014 - Finished r/n on Chapter 3. 
 
+08/01/2014 - Finished r/n on Chapter 4.
+
 2014

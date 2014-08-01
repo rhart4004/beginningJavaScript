@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-trasistional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+
+        <title>Debugging: Callstack</title>
+        
+        <script type="text/javascript">
+            function firstCall()
+            {
+                secondCall();
+            }
+
+            function secondCall()
+            {
+                thirdCall();
+            }
+
+            function thirdCall()
+            {
+               // 
+            }
+
+            function button1_onclick()
+            {
+                debugger
+                firstCall();
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="button" name="button1"
+            onclick="return button1_onclick()" />
+    </body>
+</html>
