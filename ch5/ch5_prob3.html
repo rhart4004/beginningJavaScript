@@ -1,0 +1,38 @@
+<DOCTYPE htmll PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Chapter 5: Example 3</title>
+        <script type="text/javascript">
+            function fix( fixNumber, decimalPlaces ) 
+            {
+                var div = Math.pow(10, decimalPlaces);
+                fixNumber = new String( Math.round(fixNumber * div) / div );
+
+                if (fixNumber.indexOf(".") == -1 )
+                { 
+                    fixNumber += ".";
+                }
+                
+                var fixZeros = decimalPlaces - (fixNumber.length - fixNumber.indexOf(".") - 1);
+                for ( var i = 0; i < fixZeros; i++ )
+                    fixNumber += "0"; 
+                return fixNumber;
+            }
+        </script>
+            
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var number1 = prompt("Enter the number with decimal places you want to fix", "");
+            var number2 = prompt("How many decimal places do you want?", "");
+
+            document.write( number1 + " fixed to " + number2 + " decimal places is: " );
+            document.write( fix(number1, number2));
+
+        </script>
+    </body>
+</html>
+            
