@@ -1,0 +1,34 @@
+<DOCTYPE htmll PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Chapter 5: Example 8</title>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+
+            var names = new Array() ;
+            var input, i = 0;
+
+            input = prompt( "Please enter a name: ", "" );
+
+            while( input != "" ) 
+            {
+                names[i] = input ;
+                input = prompt( "Please enter a name: ", "" );
+                i++ ;
+            }
+
+            names.sort();
+            function display( value, index, array )
+            {
+                document.write( value + "<br />");
+            }
+
+            names.forEach(display);
+        </script>
+    </body>
+</html>
+                

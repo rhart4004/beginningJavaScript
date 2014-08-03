@@ -37,4 +37,6 @@ Updates
 
 08/01/2014 - Finished r/n on Chapter 4.
 
+08/02/2014 - Finished r/n on Chapter 5 with the exception of the last exercise.
+
 2014
