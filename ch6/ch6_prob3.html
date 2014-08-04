@@ -1,0 +1,19 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Mouseover Image</title>
+        <script type="text/javascript">
+            function changeToUSA( that )
+            {
+                that.src = "usa.gif"; } 
+            function changeToCanada( that )
+            {
+                that.src = "canada.gif";
+            } 
+        </script>
+    </head>
+    <body>
+        <img src="canada.gif" height="150" width="200" name="flag" onmouseover="changeToUSA( this )"
+            onmouseout="changeToCanada( this )" />
+    </body>
+</html>

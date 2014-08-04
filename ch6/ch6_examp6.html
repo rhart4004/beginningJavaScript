@@ -1,0 +1,46 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Chapter 6: Example 6</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var browser = "Unknown";
+            var version = "0";
+
+            if( window.opera )
+            {
+                browser = "Opera";
+                version = "5+";
+
+                if ( window.setPreference ) 
+                {
+                    version = "9";
+                }
+
+            }
+    
+            else if (document.all)
+            {
+                browser = "Internet Explorer";
+                version = "6-";
+            
+                if (window.XMLHttpRequest)
+                {
+                    version = "7+";
+                }
+
+            }
+            else if (window.sidebar)
+            {
+                browser = "Firefox";
+                version = "1+";
+            }
+
+            document.write( browser + " " + version );
+        </script>
+    </body>
+</html>
+

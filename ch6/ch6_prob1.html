@@ -1,0 +1,27 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Link href display</title>
+        <script type="text/javascript">
+            function printLinksHREF()
+            {
+                for (var i = 0; i < document.links.length; i++)
+                {
+                    alert( document.links[i].href );
+                }
+            }
+        </script>
+
+    </head>
+    <body onload="printLinksHREF()">
+            
+        <a href="http://www.google.com">A link</a>
+        <a href="http://www.thepiratebay.com">Another link</a>
+        <a href="http://www.yahoo.com">A third link</a>
+        <a href="http://www.bing.com">A fourth link</a>
+
+    </body>
+</html>
+

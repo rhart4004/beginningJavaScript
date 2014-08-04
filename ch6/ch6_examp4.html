@@ -1,0 +1,25 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Chapter 6: Example 4</title>
+    </head>
+
+    <body>
+
+        <script type="text/javascript">
+            function linkSomePage_onclick()
+            {
+                alert('This link is going nowhere');
+                return false;
+            }
+        </script>
+
+        <a href="somepage.html" name="linkSomePage">Click Me</a>
+        <script type="text/javascript">
+            document.links['linkSomePage'].onclick = linkSomePage_onclick;
+        </script>
+    </body>
+</html>
+

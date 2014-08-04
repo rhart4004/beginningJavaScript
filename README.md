@@ -41,4 +41,6 @@ Updates
 
 08/03/2014 - Finished last question of Chapter 5 and started chapter 6.
 
+08/04/2014 - Finished r/n on chapter 6.
+
 2014

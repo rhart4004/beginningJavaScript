@@ -1,0 +1,33 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/RT/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Chapter 6: Example 5</title>
+        <script type="text/javascript">
+            var myImages = new Array("usa.gif", "canada.gif", "jamaica.gif", "mexico.gif");
+
+            function swapImage(that)
+            {
+                var newImageNumber = Math.round(Math.random() * 3);
+
+                while(that.src.indexOf(myImages[newImageNumber]) != -1)
+                {
+                    newImageNumber = Math.round(Math.random() * 3);
+                }
+
+                that.src = myImages[newImageNumber];
+
+                return false; // shouldn't need because it is an image not a link
+            }
+        </script>
+    </head>
+    <body>
+        <img name="img0" src="usa.gif" border="0" onclick="return swapImage(this)" />
+        <img name="img1" src="mexico.gif" border="0" onclick="return swapImage(this)" />
+    </body>
+</html>
+                
+                    
+
+
