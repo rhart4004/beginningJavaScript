@@ -43,4 +43,4 @@ Updates
 
 08/04/2014 - Finished r/n on chapter 6.
 
-2014
+All rights reserved. Ryan Hart 2014
