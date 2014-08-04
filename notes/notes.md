@@ -43,4 +43,15 @@ To demonstrate lastIndexOf I need a new string with repeating characters.
 
 The code above will find the last 'r' in 'Firetruck' and return the value 5.
 
+substr and substring are very similar. The syntax of both is shown below:
+
+    substr( startingIndex, # of chars );
+    substring( startingIndex, endingIndex ) //ending index is not included in return string
+
+Note: If you are using substring, make sure that you remember the ending index is not included.
+
+
+
+
+
 
