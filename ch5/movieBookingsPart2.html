@@ -1,0 +1,135 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml.html">
+
+    <head>
+
+        <title>Creating a Cinema Booking System</title>
+
+        <script type="text/javascript">
+
+            // CustomerBooking type
+/*
+            // Constructor
+            function CustomerBooking( bookingId, customerName, film, showDate )
+            {
+                this.bookingId = bookingId ;
+                this.customerName = customerName;
+                this.film = film;
+                this.showDate = showDate;
+            }
+
+            // Get Set Methods
+            CustomerBooking.prototype.getBookingId = function:)
+            {
+                return this.bookingId;
+            }
+
+            CustomerBooking.prototype.setBookingId = function( bookingId )
+            {
+                this.bookingId = bookingId;
+            }
+
+            CustomerBooking.prototype.getCustomerName = function()
+            {
+                return this.CustomerName;
+            }
+
+            CustomerBooking.prototype.setCustomerName = function( customerName )
+            {
+                this.customerName = customerName;
+            }
+
+            CustomerBooking.prototype.getFilm = function()
+            {
+                return this.film;
+            }
+
+            CustomerBooking.prototype.setFilm = function( film )
+            {
+                this.film = film;
+            }
+
+            CustomerBooking.prototype.getShowDate = function()
+            {
+                return this.showDate;
+            }
+
+            CustomerBooking.prototype.setShowDate = function( showDate )
+            {
+                this.showDate = showDate;
+            }
+
+            // Cinema type
+*/
+            // Constructor
+            function Cinema () 
+            {
+                this.bookings = new Array();
+            }
+
+            Cinema.prototype.addBooking( bookingId, customerName, film, showDate )
+            {
+                this.bookings[bookingId] = new CustomerBooking( bookingId, customerName, film, showDate );
+            }
+
+            Cinema.prototype.getBookingHTML()
+            {
+                var booking;
+                var bookingTableHTML = "<table border='1'>";
+
+                for( booking in this.bookings )
+                {
+                    bookingTableHTML += "<tr>";
+
+                    bookingTableHTML += "<td>";
+                    bookingTableHTML += this.bookings[booking].getBookingId();
+                    bookingTableHTML += "</td>";
+
+                    bookingTableHTML += "<td>";
+                    bookingTableHTML += this.bookings[booking].getCustomerName();
+                    bookingTableHTML += "</td>";
+
+                    bookingTableHTML += "<td>";
+                    bookingTableHTML += this.bookings[booking].getFilm();
+                    bookingTableHTML += "</td>";
+
+                    bookingTableHTML += "<td>";
+                    bookingTableHTML += this.bookings[booking].getShowDate();
+                    bookingTableHTML += "</td>";
+
+                    bookingTableHTML += "</tr>";
+                }
+
+                bookingTableHTML += "</table>";
+                return bookingTableHTML;
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <h2>Summary of Movie Bookings</h2>
+
+        <script type="text/javascript">
+
+            var test = new Cinema();
+
+            //lowell.addBooking( 3, "Ryan Hart", "Sex Tape", "24 August 2014 6:15" );
+            //lowell.addBooking( 1, "Bri Gainley", "Malifacent", "25 August 2015 20:26" );
+
+            //document.write( lowell.getBookingHTML() );
+
+        </script>
+
+    </body>
+
+</html>  
+
+                
+                    
+                      
+
+            
