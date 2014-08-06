@@ -124,7 +124,7 @@ would return
 
     [3,4]
 
-because 3 is myArray[2], 4 is myArray[3] and that is all that it copies since the last element is not copied.
+because 3 is `myArray[2]`, 4 is `myArray[3]` and that is all that it copies since the last element is not copied.
 
 
 
