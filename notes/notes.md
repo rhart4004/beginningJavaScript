@@ -1,5 +1,5 @@
-Javascript Notes
-==================
+JavaScript for Programmers
+==========================
 
 Strings
 -------
