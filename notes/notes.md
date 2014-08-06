@@ -126,6 +126,16 @@ would return
 
 because 3 is `myArray[2]`, 4 is `myArray[3]` and that is all that it copies since the last element is not copied.
 
+join( separationString ) takes each element of an array and adds it to a string with the separationString in between.
+
+    return myArray.join( "--" )
+
+would return `1--2--3--4--5`.
+
+
+
+
+
 
 
 
