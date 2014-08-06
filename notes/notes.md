@@ -114,7 +114,8 @@ would return
     [ 1,2,3,4,5,6,7,8 ]
 
 slice( firstElementToCopy, lastElement ) copies part of an arrray to another array.
-Note: lastElement is not copied by the slice function
+
+*Note: lastElement is not copied by the slice function*
 
     var subArray1 = myArray.slice(2,4);
     return subArray1;
