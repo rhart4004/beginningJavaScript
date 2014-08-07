@@ -415,6 +415,23 @@ This will create a object with type Vehicle that has 4 wheels, is red, and has a
 Browswer Object Model
 ---------------------
 
+The **Browser Object Model** is a tree model of any and all objects.
+
+At the top of the Browser Object Model is the Window Object. The Window Object includes:
+* Scrollbars
+* Navigation Bar
+
+The window object is a Global Object, which just means that to access the properties and methods of the window object, you dont need to write *window.* in front. An example is the alert method of the window object.
+
+    window.alert( "Hello, World!" );
+
+and 
+
+    alert( "Hello, World!" ); 
+
+are both work and are both valid.
+
+In the next level down, there is the document object which contains the HTML element and all elements inside of it.
 
 
 
