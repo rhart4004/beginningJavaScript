@@ -249,14 +249,101 @@ would return 25.
 
 Number Objects
 ---------------
+### Methods
 
+* toFixed
 
+#### Details
+
+To create a number object
+
+    var num1 = new Number( 1234.56 );
+
+or 
+
+    var num2 = 1234.56;
+
+Javascript will understand that in the second statement you want this to be a number object even though you didnt specify.
+
+toFixed( numDecimalPlace ) fixes a float to the specified number of decimal places. This function will round, similar to Math.round(), as it fixes the float.
+
+Date Objects
+-------------
+
+### Methods
+
+* getDate
+* getDay
+* getMonth
+* getFullYear
+* toDateString
+* setDate
+* setMonth
+* setFullYear
+* getHour
+* getMinutes
+* getSeconds
+* getMilliseconds
+* toTimeString
+* setHours
+* Setminutes
+* setSeconds
+* setMilliseconds
+
+#### Details
+
+There are a couple of different ways to create a date object
+
+    var theDate = new Date() // sets the new date to the current date/time on the PC
+    var theDate2 = new Date( 17800108 ) // sets the new date to that
+                                        // many milliseconds since January 1, 1970 0:00 GMT
+    var theDate3 = new Date( '31 January 2010' ) // sets the date to the passed value
+    var theDate4 = new Date( year, month, day, hour, minute, seconds, milliseconds ) // sets date accordingly
+
+*Note: when specifying the month, January is the 0 month
+
+getDate() gets the day of the month
+
+getDay() gets the day of the week (Sunday = 0, Monday = 1, etc.)
+
+getMonth() gets the current month (Jan = 0, Feb = 1, etc.)
+
+getFullYear() gets the current 4 digit year
+
+toDateString() returns the date as a string. Example return shown below:
+
+    "Wed 31 Dec 2014"
+
+setDate( num ) set the day of the month
+
+*Note: If you give setDate() a number larger than 31, it will add that many days to the current date.
+
+setDay( num ) set the day of the week 
+
+setMonth( num ) set the month of the year
+
+*Note: If you give setMonth() a number larger than 12, it will add that many months to the current date.
+
+setFullYear( YYYY ) sets the current year 
+
+getHours() gets the current hour (in 24 hour format)
+
+getMinutes() gets the current minutes
+
+getSeconds() gets the current seconds
+
+getMilliseconds() gets the current milliseconds
+
+toTimeString() returns the time as a string. Examle return shown below:
+
+    "13:03:51 UTC"
+
+setHours( num ) sets the current hour (in 24 hour fomat)
  
+setMinutes() sets the current minutes
 
+setSeconds() sets the current seconds
 
-
-
-
-
+setMilliseconds() sets the current milliseconds
 
 
