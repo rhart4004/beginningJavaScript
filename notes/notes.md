@@ -237,7 +237,21 @@ Math.ceil( num ) rounds `num` **up** to the nearest whole number.
 
 Math.floor( num ) rounds `num` **down** to the nearest whole number.
 
-Math.round( num ) rounds `num` **down** to the nearest whole number if 
+Math.round( num ) rounds `num` using the conventional method. (rounds **down** if fractional part is less than .5 and **up** otherwise)
+
+Math.random() returns a floating point value between 0 and 1.
+
+Math.pow( num, exponent ) returns the value of num to the power of exponent.
+
+    return Math.pow( 5, 2 )
+
+would return 25.
+
+Number Objects
+---------------
+
+
+ 
 
 
 
