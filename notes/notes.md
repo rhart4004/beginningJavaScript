@@ -346,4 +346,75 @@ setSeconds() sets the current seconds
 
 setMilliseconds() sets the current milliseconds
 
+Creating **New** Types of Objects
+----------------------------------
+
+Reference types act as a template for objects. Reference types have 3 main parts:
+
+* Constructor
+    * Called when objects are created
+* Method Definitions
+    * Set
+    * Get
+    * Function the object can do
+* Properties
+
+The constructor is set up as shown below:
+
+    function ObjectName( Arguements )
+    {
+        // Your code
+    }
+
+When you create an object, it is called making an **object instance**.
+
+When writing contructors you will usually see code like below:
+
+    function Vehicle( numWheels, color, driveSystem )
+    {
+        this.numWheels = numWheels;
+        this.color = color;
+        this.driveSystem = driveSystem;
+    }
+
+*this* in the example above refers to the object instance that is being created. The *this* keyword will come up a lot and we will go further into it when I fully understand it.
+
+Now it is time to make the get and set functions. These are functions that retrieve properties of your object.
+
+An example of a get function is shown below:
+
+    Vehicle.prototype.getNumWheels = function()
+    {
+        return this.numWheels;
+    }
+
+As you can see in this example, the getNumWheels method is just returning the numWheels property.
+
+This format must be strickly followed. The format should be obvious, but I will show you explicitly.
+
+    ObjectName.prototype.methodName = function( arguements ) 
+    {
+        // Your code
+    }
+
+Just as an example, below is a set function
+
+    Vehicle.prototype.setNumWheels = function( numWheels )
+    {
+        this.numWheels = numWheels;
+    }
+
+As you can see the same format is used, but now we are passing in an arguement. The arguement is then set as the associated property of the object.
+
+The final step in the process is to actually go an create an object instance of your new type. To do this
+
+    var truck = new Vehicle( 4, 'red', 'all-wheel drive' );
+
+This will create a object with type Vehicle that has 4 wheels, is red, and has all-wheel drive.
+
+Browswer Object Model
+---------------------
+
+
+
 
