@@ -421,6 +421,8 @@ At the top of the Browser Object Model is the Window Object. The Window Object i
 * Scrollbars
 * Navigation Bar
 
+###Window Object
+
 The window object is a Global Object, which just means that to access the properties and methods of the window object, you dont need to write *window.* in front. An example is the alert method of the window object.
 
     window.alert( "Hello, World!" );
@@ -431,7 +433,70 @@ and
 
 are both work and are both valid.
 
-In the next level down, there is the document object which contains the HTML element and all elements inside of it.
+The window object contains 
+
+* Document Object, which contains the page
+* History Object, which contains the history of the user
+* Navigator Object, which contains information about the browser
+* Screen Object, which contains information about the display capabilities of the user
+* Location Object, which contains the pages current location
+
+### History Object
+
+The History object is an array of history locations. There are a couple of methods worth noting.
+
+Forward() brings the user forward in their history
+
+Back() brings the user back in their history
+
+go( num ) brings the user forward num (if positive) or back num (if negative) 
+
+### Location Object
+
+The location object is used to modify the current page location.
+
+replace( url ) brings user to url and removes the previous page from the history stack
+
+href( url ) brings uer to url, but keeps the previous page in the history stack
+
+### Screen Object
+
+The screen property has three main properties that are useful. These are:
+
+height, which returns the height of users screen
+
+width, which returns the width of users screen
+
+colorDepth, which returns the color depth of the users screen
+
+### Document Object
+
+Inside the Document Object, there are a couple of *collections*. 
+
+#### Image Collection
+
+With the images collection, you can refer to images on your page using number or name.
+
+`document.images[0]` references the first image on the page. If you change the arguement, you get other images.
+
+`document.image['myImage']` references the image named 'myImage'.
+
+The `src` property is used to set the src attribute of the image.
+
+    document.images[1].src = "../images/laughingPanda.gif";
+
+#### Links Collection
+
+The links collection is almost identical to the images collection but it contains the links on the page.
+
+`document.links[0]` references the first link on the page.
+
+`document.links['myLink']` references the link named 'myLink'.
+
+Events
+--------
+
+
 
 
 

@@ -45,4 +45,6 @@ Updates
 
 08/06/2014 - Upload transcribed notes.
 
+08/07/2014 - Upload transcribed notes.
+
 All rights reserved. Ryan Hart 2014
