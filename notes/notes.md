@@ -23,9 +23,9 @@ String Objects
 ####Details
 
 To create a new string
-
+'''javascript
     var myName = new String( 'Ryan' );
-
+'''
 To find the length of a string
 
     myName.length
