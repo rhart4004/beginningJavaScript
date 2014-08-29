@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+    <head>
+        <title>Chapter 7: Example 2</title>
+        <script type="text/javascript">
+            var numberOfClicks = 0;
+            function myButton_onclick()
+            {
+                numberOfClicks++;
+                document.form1.myButton.innerHTML = "Button Clicked " + numberOfClicks + " times";
+            }
+        </script>
+    </head>
+    <body>
+        <form name="form1" action="">
+            <button type="button" name="myButton" 
+                onclick="myButton_onclick()">Button Clicked 0 times</button>
+        </form>
+    </body>
+</html>
+
+

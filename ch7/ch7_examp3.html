@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional/EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://w3.org/1999/xhtml">
+    <head>
+        <title>Chapter 7: Example 2</title>
+        <script type="text/javascript">
+            function myButton_onmouseup() {
+                document.form1.myButton.innerHTML = "Mouse Goes Up";
+            }
+            function myButton_onmousedown() {
+                document.form1.myButton.innerHTML = "Mouse Goes Down";
+            }
+        </script>
+    </head>
+    <body>
+        <form name="form1" action="">
+            <button type="button" name="myButton" 
+                onmouseup="myButton_onmouseup()"
+                onmousedown="myButton_onmousedown()">Button</button>
+        </form>
+    </body>
+</html>
+
+
